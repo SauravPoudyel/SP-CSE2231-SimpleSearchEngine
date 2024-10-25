@@ -1,12 +1,10 @@
 # Portfolio Part 1: Component Brainstorming
 
-- **Name**: <!-- TODO: fill with first and last name (e.g., Brutus Buckeye) then delete this comment -->
-- **Dot Number**: <!-- TODO: fill with OSU dot number (e.g., buckeye.17) then delete this comment -->
-- **Due Date**: <!-- TODO: fill with due date and time (e.g., 10/17 @ 3:10 PM EST) then delete this comment -->
+- **Name**: Saurav Poudyel
+- **Dot Number**: poudyel.7
+- **Due Date**: 09/12/2024 @ 12:40 PM EST
 
 ## Assignment Overview
-
-<!-- TODO: read the assignment overview then delete this comment -->
 
 The overall goal of the portfolio project is to have you design and implement
 your own OSU component. There are no limits to what you choose to design and
@@ -29,8 +27,6 @@ implement.
 
 ## Assignment Checklist
 
-<!-- TODO: browse the checklist then delete this comment -->
-
 To be sure you have completed everything on this assignment, we have littered
 this document with TODO comments. You can browse all of them in VSCode by
 opening the TODOs window from the sidebar. The icon looks like a tree and will
@@ -52,8 +48,6 @@ to the tree diagram (you may remove this one as well):
 
 ## Assignment Learning Objectives
 
-<!-- TODO: read the assignment learning objectives then delete this comment -->
-
 Without learning objectives, there really is no clear reason why a particular
 assessment or activity exists. Therefore, to be completely transparent, here is
 what we're hoping you will learn through this particular aspect of the portfolio
@@ -66,8 +60,6 @@ project. Specifically, students should be able to:
    discipline
 
 ## Assignment Rubric: 10 Points
-
-<!-- TODO: read the assignment rubric then delete this comment -->
 
 Again, to be completely transparent, most of the portfolio project, except the
 final submission, is designed as a formative assessment. Formative assessments
@@ -98,23 +90,15 @@ do good work.
 > brainstorming. Plus it helps us get to know you better! Feel free to share
 > images in this section.
 
-<!-- TODO: briefly talk about your interests then delete this comment.
-Also, protip: you can preview what your response looks like by hitting
-the magnifying glass icon in the upper-right corner or pressing CTRL+K and
-then V. This kind of button combination is called a chord, for whatever
-reason -->
+I have always been fascinated by computer science for its versatility in applications across various academic fields, and that made the major an obvious choice for me. In the pursuit of a computer science degree, I really want to focus on the research opportunities involved in my major and department. This is part of the reason I chose Ohio State—for its resources. I have a passion for discovering new things and I want to pursue that so I can not only discover new things for myself but for society as well. I would love to narrow into the biomedical field and utilize my computer science experience to create medical devices and improve the medical field.
 
 ## Assignment
-
-<!-- TODO: read the assignment section then delete this comment -->
 
 As previously stated, you are tasked with brainstorming 3 possible components.
 To aid you in this process, we have provided [some example components][example-components]
 that may help you in your brainstorming. All of these components were made at
 some point by one of your peers, so you should feel confident that you can
 accomplish any of them.
-
-<!-- TODO: browse the list of possible projects then delete this comment -->
 
 There is no requirement that you use any of the components listed above.
 If you want to model something else, go for it! Very common early object
@@ -123,8 +107,6 @@ etc. Make of this whatever seems interesting to you, and keep in mind that
 you're just brainstorming right now. You do not have to commit to anything.
 
 ### Example Component
-
-<!-- TODO: review this example component then delete this comment -->
 
 To help you brainstorm a few components, we've provided an example below of a
 component you already know well: NaturalNumber. We highly recommend that you
@@ -157,10 +139,10 @@ format, we can be more confident that your designs will be possible.
         mutate `this`.
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-        - No. All methods work with integers or other NaturalNumbers.
+      - No. All methods work with integers or other NaturalNumbers.
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-        - Yes. NaturalNumber is base 10, and we track that in a constant called
+      - Yes. NaturalNumber is base 10, and we track that in a constant called
           `RADIX`.
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
@@ -192,70 +174,100 @@ will likely refine your design to make your implementation easier to use.
 
 > Please use this section to share your designs.
 
-- Component Design #1: <!-- TODO: give component a name then delete this comment -->
+- Component Design #1: Wordle
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+    - A model of the NY Times wordle puzzle. Picks a word from a file of words that can be altered/changed and allows the user to guess the word. The model also provides feedback with Red, Green, and Yellow values for each character while also keeping track of guesses.
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+    - void readFile(String fileLocation): checks for valid file input and imports the file values to store into the model
+    - boolean contains(String word) : checks if a word is allowable in the model
+    - void clear() : completely clears the model of all the data that it holds
+
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    - void alterSolutionList(String fileLocation): changes the available word answer selection
+    - void alterGuessList(String fileLocation): changes the available word guesses selection
+    - void guess(String word) : takes in a guess and displays it's respective correctness to standard out
+    - String getSolution() : goes through the model storage and retrieves a solution from the solution list
+
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, basically all OSU components have to be mutable as long as they
+        inherit from Standard. `clear`, `newInstance`, and `transferFrom` all
+        mutate `this`.
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Maybe A Map to store the guess correctness, and a couple other data structrues to sort and prepare the solution, and guess list.
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - I'm not sure.
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - I should be able to. the alterSolitionList needs to read from a file in order to alter the model and thus you would need the readFile method provided with the other kernels.
 
-
-- Component Design #2: <!-- TODO: give component a name then delete this comment -->
+- Component Design #2: Quiz
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+    - Stores a list of words and descriptions from a text file and is able to print out random words to the screen and display their defintion afterwards or vise versa. Is also able to print out multiple choice questions that gives options on the other definitions provided.
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+    - void readFile(String fileLocation): checks for valid file input and imports the file values to store into the model
+    - void clear() : empties the entire model of it's stored words and definitions
+    - void resetStates() : resets all the words from a chosen before state to not touched
+    - void choose(String word) : goes through the model and changes the state of the word parametr to chosen
+    - void add(String word, String definition) : adds a set of words and definitions to the model
+    - void remove(String word) removes a word from the word list
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    - void cycleWords() : goes through the list of words and prints out their definitions when the user asks, exits with q
+    - void cycleDefinitions() : goes through the list of definitions and takes the users guess of a word and checks if it is right, exits with q
+    - String getWord() : goes through the list of words and gets a single random word
+    - String getDefinition(String word) : goes through the list of defintions and gets out the one associated with the given word parameter
+    - void printQuiz : prints out all the words and their respective definitions
+    - void cycleQuiz : prints out words and gives multiple choice options based on the other definitons. Takes in an input and keeps score
+
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, basically all OSU components have to be mutable as long as they
+        inherit from Standard. `clear`, `newInstance`, and `transferFrom` all
+        mutate `this`.
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - I beleive that I will use map to store a lot of the lists and then maybe also a queue.
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - I'm not sure
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - I should be able to. Geting a word from random requires all the states of the words to be in correct order and so the choose(String word) method needs to be used to correctly keep track of states.
 
-
-- Component Design #3: <!-- TODO: give component a name then delete this comment -->
+- Component Design #3: ContactBook
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+    - A model that can store the names, adresses, emails, phone numbers, birthday, and notes on a person (not all are required). It can retrieve the info and can lock certain info behind an encrypted password.
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+    - void store(Strin args ...) : Takes in args of certain formats and creates a contact based on the args. The args can be in any order and the model scans for "@" for proper email input "###-###-###" for proper number input, "##/##/####" for proper birthday etc.
+    - void clear() : cleares the model of all contacts and the info associated
+    - bool contains(String arg) : goes through the model and checks if an argument is associated with the contact
+    - void lock(String infoType) : locks a piece of info from being retrieved from all contacts without a password
+    - void remove(String infoType) : removes a piece of info from the contact
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    - void setPassword() : gets a password from the user, encrypts it, and stores it to access certain information
+    - String[] retrieve(String arg) : given an argument retrieves all the other accesible info and places it into an array
+    - String[] retrieveAll(String arg, String password) : given an argument retrieves all the other info and places it into an array
+    - void alter(String infoType, String changedValue) : changes the infoType in a contact to the new information
+
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, basically all OSU components have to be mutable as long as they
+        inherit from Standard. `clear`, `newInstance`, and `transferFrom` all
+        mutate `this`.
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - I might incorporate a stack or other component data structure to store values but other than that. I might also create a Contact Class to store all the resptive info for a contact and just have the contact book alter it
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - I don't know.
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - I believe I can. ALtering a contact requires certain info to be removed and thus the rest to be stored and so it can utilize both the store() and remove() kernel methods for this.
 
 ## Post-Assignment
 
@@ -263,8 +275,6 @@ The following sections detail everything that you should do once you've
 completed the assignment.
 
 ### Changelog
-
-<!-- TODO: create CHANGELOG then delete this comment -->
 
 At the end of every assignment, you should update the
 [CHANGELOG.md](../../CHANGELOG.md) file found in the root of the project folder.
@@ -286,9 +296,9 @@ the following form: YYYY.0M.0D.
 
 ### Added
 
-- Designed a <!-- insert name of component 1 here --> component
-- Designed a <!-- insert name of component 2 here --> component
-- Designed a <!-- insert name of component 3 here --> component
+- Designed a Wordle component
+- Designed a Quiz component
+- Designed a ContactBook component
 ```
 
 Here `YYYY.MM.DD` would be the date of your submission, such as 2024.04.21.
@@ -303,8 +313,6 @@ of development.
 
 ### Submission
 
-<!-- TODO: read the submission instructions then delete this comment -->
-
 If you have completed the assignment using this template, we recommend that
 you convert it to a PDF before submission. If you're not sure how, check out
 this [Markdown to PDF guide][markdown-to-pdf-guide]. However, PDFs should be
@@ -313,11 +321,7 @@ all your work is there before submitting. For future assignments, you will
 just be submitting a link to a pull request. This will be the only time
 you have to submit any PDFs.
 
-<!-- TODO: upload a PDF of this document and the CHANGELOG to Carmen then delete this comment -->
-
 ### Peer Review
-
-<!-- TODO: review the peer review guidelines then delete this comment -->
 
 Following the completion of this assignment, you will be assigned three
 students' component brainstorming assignments for review. Your job during the
@@ -343,8 +347,6 @@ PDF to read this rubric as a table).
 If you'd like to give feedback for this assignment (or any assignment, really),
 make use of [this survey][survey]. Your feedback helps make assignments
 better for future students.
-
-<!-- TODO: follow the link to share your feedback then delete this comment -->
 
 [example-components]: https://therenegadecoder.com/code/the-never-ending-list-of-small-programming-project-ideas/
 [markdown-to-pdf-guide]: https://therenegadecoder.com/blog/how-to-convert-markdown-to-a-pdf-3-quick-solutions/
