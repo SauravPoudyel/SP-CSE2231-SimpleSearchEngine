@@ -121,7 +121,7 @@ hierarchy diagram using whatever tools you would like. Then, include a picture
 of it in this folder. You may also embed it just below using markdown syntax
 (i.e., `[ALT TEXT](path/to/file)`).
 
-[Hierarhcy Diagram](C:\Users\saura\OneDrive - The Ohio State University\Documents\OHIO STATE DOCS\AU 2024\CSE 2231\SP-CSE2231-Project\doc\03-component-interfaces\Hierarchy-Diagram.png)
+[Hierarhcy Diagram](C:\Users\saura\OneDrive - The Ohio State University\Documents\OHIO STATE DOCS\AU 2024\CSE 2231\SP-CSE2231-SimpleSearchEngine\doc\03-component-interfaces\Hierarchy-Diagram.png)
 
 To start making your interfaces, make a branch off of main in your new repo
 called something like `interfaces`. There are many ways to do this, but my
@@ -244,8 +244,6 @@ markdown as HTML or a PDF to read this rubric as a table).
 If you'd like to give feedback for this assignment (or any assignment, really),
 make use of [this survey][survey]. Your feedback helps make assignments
 better for future students.
-
-<!-- TODO: follow the link to share your feedback then delete this comment -->
 
 [natural-number-kernel]: https://web.cse.ohio-state.edu/software/common/doc/src-html/components/naturalnumber/NaturalNumberKernel.html
 [natural-number]: https://web.cse.ohio-state.edu/software/common/doc/src-html/components/naturalnumber/NaturalNumber.html
