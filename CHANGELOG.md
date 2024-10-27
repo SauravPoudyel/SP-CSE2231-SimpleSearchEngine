@@ -27,7 +27,8 @@ the following form: YYYY.0M.0D.
 
 ## [2024.09.27]
 
-### Added
+## [2024.09.27]
+
 
 - Designed a proof of concept for SimpleSearchEngine component:
   - SimpleSearchEngine.java class
@@ -44,3 +45,7 @@ the following form: YYYY.0M.0D.
   - Queue<String> containsSearch(String keyWord) method
   - proofTest.txt to test some base cases
   - words.txt which contains 465k words to parse through
+
+### Removed
+
+- The previous changelog about how this git template was made
