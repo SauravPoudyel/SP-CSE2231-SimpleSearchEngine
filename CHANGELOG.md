@@ -8,6 +8,39 @@ the following form: YYYY.0M.0D.
 
 ## [Unreleased]
 
+## [2024.10.27]
+
+### Added
+
+- Designed SimpleSearchEngine1L class:
+  - created model for SimpleSearchEngine rep
+    - decided on a suffix tree as the searchStructure
+  - implemented void add(String tag, T value) method
+  - void remove(String title) method
+  - boolean contains(String title) method
+  - void changeToSearchMode() method
+  - boolean isInInsertionMode() method
+  - int size() method
+
+- Designed SimpleSearchEngine Secondary Interface:
+  - Pair<String, String> relativeSearch(String title) method
+  - Set<Pair<String, String>> prefixSearch(String prefix) method
+  - Set<Pair<String, String>> containsSearch(String subString)
+
+  - implemented void add(String title, String content) method
+  - void remove(String title) method
+  - boolean contains(String title) method
+  - void changeToSearchMode() method
+  - boolean isInInsertionMode() method
+  - int size() method
+
+- Designed SimpleSearchEngine Secondary Interface:
+  - Pair<String, String> relativeSearch(String title) method
+  - Set<Pair<String, String>> prefixSearch(String prefix) method
+  - Set<Pair<String, String>> containsSearch(String subString)
+
+## [2024.10.13]
+
 ### Added
 
 - Designed SimpleSearchEngineKernel Interface:
