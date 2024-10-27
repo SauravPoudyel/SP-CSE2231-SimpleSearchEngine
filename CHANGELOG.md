@@ -11,17 +11,18 @@ the following form: YYYY.0M.0D.
 ### Added
 
 - Designed SimpleSearchEngineKernel Interface:
-  - void add(String title, String content) method
-  - void remove(String title) method
-  - boolean contains(String title) method
+  - void add(String tag, T value) method
+  - void remove(String tag) method
+  - boolean contains(String tag) method
   - void changeToSearchMode() method
   - boolean isInInsertionMode() method
   - int size() method
+  - String relativeSearch(String title) method
+  - List<String> prefixSearch(String prefix) method
+  - List<String> containsSearch(String subString)
 
 - Designed SimpleSearchEngine Secondary Interface:
-  - Pair<String, String> relativeSearch(String title) method
-  - Set<Pair<String, String>> prefixSearch(String prefix) method
-  - Set<Pair<String, String>> containsSearch(String subString)
+  - temporarily empty for now
 
 - Hierarchy Diagram for Simple Search Engine
 
@@ -37,14 +38,14 @@ the following form: YYYY.0M.0D.
 ### Changed
 
 - Representation of SimpleSearchEngine
-  - SimpleSearchEngine now stores both title and content and no longer tracks
+  - SimpleSearchEngine now stores both tag and value and no longer tracks
   frequency of words or the lexigraphical order
   - SimpleSearchEngine now pivots to focus on being able to parse through strings
   that also relate to another content area to provide a dedicated use case that
   focuses on search efficiency
   - The main theme is still to focus on website titles and then website urls
   but the scope was expanded slightly to provide potentially more use cases for
-  other variable types
+  other variable types (ie. students to grades, names to bank data, etc.)
 
 ## [2024.09.27]
 

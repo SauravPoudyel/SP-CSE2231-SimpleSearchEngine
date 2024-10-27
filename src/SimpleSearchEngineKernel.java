@@ -1,3 +1,5 @@
+import java.util.List;
+
 import components.standard.Standard;
 
 /**
@@ -79,5 +81,47 @@ public interface SimpleSearchEngineKernel<T> extends Standard {
      * @ensures size = |this.entries|
      */
     int size();
+
+    /**
+     * Searches this.entries for {@code tag} and returns the {@code tag} of the
+     * closest match
+     *
+     * @param tag
+     *            the tag of the element to be searched for
+     * @requires <pre> this.entries \= {}
+     * @return A tag that is within a set character distance within the search
+     *         structure of {@code tag}
+     * @ensures String returned is the closest match to {@code tag} in
+     *          this.entries
+     */
+    String relativeSearch(String tag);
+
+    /**
+     * Searches this.entries for {@code tag} that contains {@code prefix} and
+     * returns a list of all the {@code tag} with the entered prefix
+     *
+     * @param prefix
+     *            the prefix to be searched for
+     * @requires <pre> this.entries \= {}
+     * @return A list containing all tags in this.entries with the prefix
+     *         {@code prefix}
+     * @ensures The returned list contains all tags that have {@code prefix} in
+     *          the {@code tag}'s' of this.entries
+     */
+    List<String> prefixSearch(String prefix);
+
+    /**
+     * Searches this.entries for {@code tag} that contains {@code substring} and
+     * returns a list of all the {@code tag} with the entered substring
+     *
+     * @param subString
+     *            the substring to be searched for
+     * @requires <pre> this.entries \= {}
+     * @return A list containing all tags in this.entries with the substring
+     *         {@code substring}
+     * @ensures The returned list contains all tags that have {@code subtring}
+     *          in the {@code tag}'s' of this.entries
+     */
+    List<String> containsSearch(String subString);
 
 }
