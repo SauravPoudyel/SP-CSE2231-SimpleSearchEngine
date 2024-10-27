@@ -27,7 +27,8 @@ the following form: YYYY.0M.0D.
 
 ## [2024.09.27]
 
-### Added
+## [2024.09.27]
+
 
 - Designed a proof of concept for SimpleSearchEngine component:
   - SimpleSearchEngine.java class

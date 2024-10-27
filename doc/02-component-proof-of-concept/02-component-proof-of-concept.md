@@ -1,12 +1,10 @@
 # Portfolio Part 2: Component Proof-of-Concept
 
-- **Name**: <!-- TODO: fill with first and last name (e.g., Brutus Buckeye) then delete this comment -->
-- **Dot Number**: <!-- TODO: fill with OSU dot number (e.g., buckeye.17) then delete this comment -->
-- **Due Date**: <!-- TODO: fill out with due date and time (e.g., 10/17 @ 3:10 PM EST) then delete this comment -->
+- **Name**: Saurav Poudyel
+- **Dot Number**: poudyel.7
+- **Due Date**: 09/30/2024 @ 12:40 PM EST
 
 ## Assignment Overview
-
-<!-- TODO: read the assignment overview then delete this comment -->
 
 Previously, you brainstormed three ideas, and hopefully you got some feedback as
 well. However, it's impossible to know how reasonable your design actually is
@@ -30,8 +28,6 @@ the more work you can put in now, the better.
 
 ## Assignment Checklist
 
-<!-- TODO: browse the checklist then delete this comment -->
-
 To be sure you have completed everything on this assignment, we have littered
 this document with TODO comments. You can browse all of them in VSCode by
 opening the TODOs window from the sidebar. The icon looks like a tree and will
@@ -53,8 +49,6 @@ to the tree diagram (you may remove this one as well):
 
 ## Assignment Learning Objectives
 
-<!-- TODO: read the assignment learning objectives then delete this comment -->
-
 Without learning objectives, there really is no clear reason why a particular
 assessment or activity exists. Therefore, to be completely transparent, here is
 what we're hoping you will learn through this particular aspect of the portfolio
@@ -67,8 +61,6 @@ project. Specifically, students should be able to:
 3. Assemble a minimal working implementation of one of their designs
 
 ## Assignment Rubric: 10 Points
-
-<!-- TODO: read the assignment rubric then delete this comment -->
 
 Again, to be completely transparent, most of the portfolio project, except the
 final submission, is designed as a formative assessment. Formative assessments
@@ -106,8 +98,42 @@ do good work.
 > to create a new design. In you do end up picking one at random, you should
 > disclose that here as well.
 
-<!-- TODO: briefly argue your choice of design or design something
-new; then delete this comment -->
+With full discolsure, I'm not planning on going all out with this project in terms of time commitment and scope, but in that regard, I still want to get a good learning expereince out of this project. I think a new simple search engine design actaully fits my goals a bit better than my previous ideas. I really want to get a
+better idea of data structures and algorithms and I think this captures that perfeclty. Here is the brainstorming idea:
+
+ Component Design NEW: Simple Search Engine
+
+- **Description**:
+  - Stores a list of words and is able to search through the index to find a word based on keyword or related searches. It is then able to return a list
+    of words ranked on similarity based on the key word entered.
+- **Kernel Methods**:
+  - void add(String word) : adds a word to the index and keeps track of the frequency at which it occurs
+  - void remove(String word) : removes a word occurence from the index
+  - void removeAll(String word) : removes a word from the index
+  - boolean isInIndex(String word) : returns whether a word is in the index or not
+  - void clearIndex() : empties the index of the search engine (this is probably just going to be a standard method)
+  - int frequencyOf(String word) : returns the number of times a word occurs in the index
+- **Secondary Methods**:
+  - void addFromDocument(String fileName) : adds words in a txt document into the indexed list (ignores: periods, punctuation etc);
+  - Queue<String> relativeSearch(String keyWord) : searches the index for the keyWord and returns a queue of 5 elements (or less) of words that are similar to that keyWord
+  - Queue<String> prefixSearch(String keyWord) : searches the index for the keyWord and returns a queue of elements of words that have the prefix of the keyword (or match the keyword)
+  - Queue<String> containsSearch(String keyWord) : searches the index for the keyWord and returns a queue of elements of words that contain the keyword (or match the keyword)
+
+- **Additional Considerations** (*note*: "I don't know" is an acceptable
+    answer for each of the following questions):
+  - Would this component be mutable? Answer and explain:
+    - Yes, basically all OSU components have to be mutable as long as they
+        inherit from Standard. `clear`, `newInstance`, and `transferFrom` all
+        mutate `this`.
+  - Would this component rely on any internal classes (e.g., `Map.Pair`)?
+      Answer and explain:
+    - I beleive that I will use map to store a lot of the lists and then maybe also a queue.
+  - Would this component need any enums or constants (e.g.,
+      `Program.Instruction`)? Answer and explain:
+    - I'm not sure
+  - Can you implement your secondary methods using your kernel methods?
+      Answer, explain, and give at least one example:
+    - I should be able to. prefixSearch just iterates through the index checking if certain words with a matching prefix are in there, and so isInIndex should help with that
 
 > Once you've argued your choice of design, make a branch in your new repo called
 > something like `proof-of-concept`. There are many ways to do this, but my
@@ -117,8 +143,6 @@ new; then delete this comment -->
 > VSCode to run git commands. It's entirely up to you. Regardless of your choice,
 > we'll want a branch that you can later make a pull request from with all
 > your changes.
-
-<!-- TODO: make a new branch from main then delete this comment -->
 
 ## Assignment Tasks
 
@@ -144,8 +168,6 @@ The following sections detail everything that you should do once you've
 completed the assignment.
 
 ### Changelog
-
-<!-- TODO: update CHANGELOG then delete this comment -->
 
 At the end of every assignment, you should update the
 [CHANGELOG.md](../../CHANGELOG.md) file found in the root of the project folder.
@@ -180,8 +202,6 @@ request merge (or at least tag your commits). This is not required.
 
 ### Submission
 
-<!-- TODO: read the submission instructions then delete this comment -->
-
 Assuming that your project is in a GitHub repo somewhere and your changes are on
 a proof-of-concept branch, then what we'll want you to do is create a pull
 request of all your changes. Pull requests are pretty easy to make if you're
@@ -202,8 +222,6 @@ recommend keeping the pull request open until at least a peer has had a chance
 to look over your changes. Otherwise, you defer needed changes to later pull
 requests, which could sacrifice the overall quality of your work or result in
 major rework.
-
-<!-- TODO: paste the URL to Carmen then delete this comment -->
 
 ### Peer Review
 
@@ -234,8 +252,5 @@ If you'd like to give feedback for this assignment (or any assignment, really),
 make use of [this survey][survey]. Your feedback helps make assignments
 better for future students.
 
-<!-- TODO: follow the link to share your feedback then delete this comment -->
-
 [pottery-fails]: https://www.youtube.com/shorts/Kqb9l113F_0?feature=share
-[markdown-to-pdf-guide]: https://therenegadecoder.com/blog/how-to-convert-markdown-to-a-pdf-3-quick-solutions/
 [survey]: https://forms.gle/dumXHo6A4Enucdkq9
