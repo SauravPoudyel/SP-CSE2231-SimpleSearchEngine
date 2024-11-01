@@ -8,6 +8,72 @@ the following form: YYYY.0M.0D.
 
 ## [Unreleased]
 
+## [2024.11.01]
+
+### Added
+
+- Mostly completed SimpleSearchEngine1L class
+  - implemented createNewRep()
+  - fully implemented and designed searchStructure helper methods
+    - implemented createTrie()
+    - implemented insertTagInTrie()
+    - implemented insertCharInTrie()
+    - implemented findNodeForPrefix()
+    - implemented collectWordsContainingSubstring()
+    - implemented collectWordsFromNode()
+    - implemented getChildNode()
+    - implemented findClosestMatch()
+    - implemented calculateEditDistance()
+  - implemented transferFrom() and clear()
+  - implemented relativeSearch
+  - implemented containsSearch
+  - implemented prefixSearch
+- Mostly completed test cases for SimpleSearchEngine1L
+  - added this.constructTest, this.createFromArgsTest, and this.createFromDocTest
+  - added AllWords and SomeWords test data
+  - added tests for: size(), add(), remove(), isInInsertionMode(), containsSearch(), relativeSearch(), prefixSearch(), changeToSearchMode(), and contains()
+
+## Removed
+
+- relativeSearch(), containsSearch(), and prefixSearch() from SimpleSearchEngineSecondary
+
+## Updated
+
+- The repersentation of the searchStructure of SimpleSearchEngine1L to just a Trie instead of a SuffixTree
+
+## [2024.10.27]
+
+### Added
+
+- Designed SimpleSearchEngine1L class:
+  - created model for SimpleSearchEngine rep
+    - decided on a suffix tree as the searchStructure
+  - implemented void add(String tag, T value) method
+  - void remove(String title) method
+  - boolean contains(String title) method
+  - void changeToSearchMode() method
+  - boolean isInInsertionMode() method
+  - int size() method
+
+- Designed SimpleSearchEngine Secondary Interface:
+  - Pair<String, String> relativeSearch(String title) method
+  - Set<Pair<String, String>> prefixSearch(String prefix) method
+  - Set<Pair<String, String>> containsSearch(String subString)
+
+  - implemented void add(String title, String content) method
+  - void remove(String title) method
+  - boolean contains(String title) method
+  - void changeToSearchMode() method
+  - boolean isInInsertionMode() method
+  - int size() method
+
+- Designed SimpleSearchEngine Secondary Interface:
+  - Pair<String, String> relativeSearch(String title) method
+  - Set<Pair<String, String>> prefixSearch(String prefix) method
+  - Set<Pair<String, String>> containsSearch(String subString)
+
+## [2024.10.13]
+
 ### Added
 
 - Designed SimpleSearchEngineKernel Interface:

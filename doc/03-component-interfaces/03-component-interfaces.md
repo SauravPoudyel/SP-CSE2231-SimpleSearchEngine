@@ -2,7 +2,7 @@
 
 - **Name**: Saurav Poudyel
 - **Dot Number**: poudyel.7
-- **Due Date**: 10/17/2024
+- **Due Date**: 10/17/2024 @ 12:40 PM EST
 
 ## Assignment Overview
 

@@ -1,3 +1,5 @@
+package components.simplesearchengine;
+
 import java.util.List;
 
 import components.standard.Standard;
@@ -61,7 +63,7 @@ public interface SimpleSearchEngineKernel<T> extends Standard {
      * Changes the mode of {@code this} from insertion to search.
      *
      * @updates this.insertion_mode
-     * @requires this.insertion_mode
+     * @requires this.insertion_mode = true
      * @ensures not this.insertion_mode
      */
     void changeToSearchMode();
@@ -83,44 +85,46 @@ public interface SimpleSearchEngineKernel<T> extends Standard {
     int size();
 
     /**
-     * Searches this.entries for {@code tag} and returns the {@code tag} of the
-     * closest match
+     * Searches this.entries for {@code relTag} and returns the {@code tag}
+     * value in {@code searchStructure} with the closest match
      *
-     * @param tag
-     *            the tag of the element to be searched for
-     * @requires <pre> this.entries \= {}
-     * @return A tag that is within a set character distance within the search
-     *         structure of {@code tag}
-     * @ensures String returned is the closest match to {@code tag} in
+     * @param relTag
+     *            the relTag of the element to be searched for
+     * @requires <pre> this.insertionMode == false
+     * @return A tag that is within a set character distance within the
+     *         {@code relTag} param
+     * @ensures returned String is the closest match to {@code relTag} in
      *          this.entries
      */
-    String relativeSearch(String tag);
+    String relativeSearch(String relTag);
 
     /**
-     * Searches this.entries for {@code tag} that contains {@code prefix} and
-     * returns a list of all the {@code tag} with the entered prefix
+     * Searches this.entries for {@code tag} that have {@code prefix} and
+     * returns a list of all the {@code tag}'s in this.entries with the entered
+     * prefix
      *
      * @param prefix
      *            the prefix to be searched for
-     * @requires <pre> this.entries \= {}
-     * @return A list containing all tags in this.entries with the prefix
-     *         {@code prefix}
-     * @ensures The returned list contains all tags that have {@code prefix} in
-     *          the {@code tag}'s' of this.entries
+     * @requires <pre> this.insertionMode == false
+     * @return A lexographically ordered list containing all tags in
+     *         this.entries with the prefix {@code prefix}
+     * @ensures The returned list, in lexographical order, that contains all
+     *          {@code tag}'s' that have {@code prefix} in this.entries
      */
     List<String> prefixSearch(String prefix);
 
     /**
-     * Searches this.entries for {@code tag} that contains {@code substring} and
-     * returns a list of all the {@code tag} with the entered substring
+     * Searches this.entries for {@code tag} that contains {@code subString} and
+     * returns a list of all the {@code tag}'s in this.entries with the entered
+     * substring
      *
-     * @param subString
-     *            the substring to be searched for
-     * @requires <pre> this.entries \= {}
-     * @return A list containing all tags in this.entries with the substring
-     *         {@code substring}
-     * @ensures The returned list contains all tags that have {@code subtring}
-     *          in the {@code tag}'s' of this.entries
+     * @param substring
+     *            the subString to be searched for
+     * @requires <pre> this.insertionMode == false
+     * @return A lexographically ordered list containing all tags in
+     *         this.entries that contain {@code subString}
+     * @ensures The returned list, in lexographical order, that contains all
+     *          {@code tag}'s' that have {@code subString} in this.entries
      */
     List<String> containsSearch(String subString);
 
