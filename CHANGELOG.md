@@ -8,7 +8,7 @@ the following form: YYYY.0M.0D.
 
 ## [Unreleased]
 
-## [2024.10.27]
+## [2024.11.01]
 
 ### Added
 
