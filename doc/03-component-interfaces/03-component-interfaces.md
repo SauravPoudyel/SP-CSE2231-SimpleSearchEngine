@@ -121,7 +121,7 @@ hierarchy diagram using whatever tools you would like. Then, include a picture
 of it in this folder. You may also embed it just below using markdown syntax
 (i.e., `[ALT TEXT](path/to/file)`).
 
-[Hierarhcy Diagram](C:\Users\saura\OneDrive - The Ohio State University\Documents\OHIO STATE DOCS\AU 2024\CSE 2231\SP-CSE2231-Project\doc\03-component-interfaces\Hierarchy-Diagram.png)
+[Hierarhcy Diagram](C:\Users\saura\OneDrive - The Ohio State University\Documents\OHIO STATE DOCS\AU 2024\CSE 2231\SP-CSE2231-SimpleSearchEngine\doc\03-component-interfaces\Hierarchy-Diagram.png)
 
 To start making your interfaces, make a branch off of main in your new repo
 called something like `interfaces`. There are many ways to do this, but my
