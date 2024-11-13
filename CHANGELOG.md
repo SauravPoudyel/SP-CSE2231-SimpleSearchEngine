@@ -8,6 +8,21 @@ the following form: YYYY.0M.0D.
 
 ## [Unreleased]
 
+## [2024.11.07]
+
+### Added
+
+- Finished Abstract Class
+  - implemented equals(object)
+  - implemented toString()
+- Added valueOf(tag) method to SimpleSearchEngineKernel and implemented it in SimpleSearchEngine1L
+- Added test cases for toString() and .equals(object)
+
+## Updated
+
+- removeAny(), and remove(tag) methods to return the Pair<String, T>'s that they removed
+- The repersentation of the searchStructure of SimpleSearchEngine1L to just a Trie instead of a SuffixTree
+
 ## [2024.11.01]
 
 ### Added

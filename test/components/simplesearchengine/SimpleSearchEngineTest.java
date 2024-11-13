@@ -184,6 +184,54 @@ public abstract class SimpleSearchEngineTest {
     }
 
     /*
+     * Tests for toString methods
+     */
+    @Test
+    public final void testToStringInsertionMode() {
+        SimpleSearchEngine1L<String> sse = this.createFromArgsTest(true, "a",
+                "b", "c", "d", "e", "f", "g", "h");
+
+        String sseString = sse.toString();
+        String sseStringExpected = "(true, ((a, b), (c, d), (e, f), (g, h))";
+
+        assertEquals(sseStringExpected, sseString);
+    }
+
+    @Test
+    public final void testToStringSearchMode() {
+        SimpleSearchEngine1L<String> sse = this.createFromArgsTest(false, "a",
+                "b", "c", "d", "e", "f", "g", "h");
+
+        String sseString = sse.toString();
+        String sseStringExpected = "(false, ((a, b), (c, d), (e, f), (g, h))";
+
+        assertEquals(sseStringExpected, sseString);
+    }
+
+    /*
+     * Tests for equals method
+     */
+    @Test
+    public final void testEqualsInsertionMode() {
+        SimpleSearchEngine1L<String> sse = this.createFromArgsTest(true, "a",
+                "b", "c", "d", "e", "f", "g", "h");
+        SimpleSearchEngine1L<String> sse2 = this.createFromArgsTest(true, "a",
+                "b", "c", "d", "e", "f", "g", "h");
+
+        assertEquals(sse, sse2);
+    }
+
+    @Test
+    public final void testEqualsSearchMode() {
+        SimpleSearchEngine1L<String> sse = this.createFromArgsTest(false, "a",
+                "b", "c", "d", "e", "f", "g", "h");
+        SimpleSearchEngine1L<String> sse2 = this.createFromArgsTest(false, "a",
+                "b", "c", "d", "e", "f", "g", "h");
+
+        assertEquals(sse, sse2);
+    }
+
+    /*
      * Add and remove tests
      */
     @Test
@@ -230,6 +278,19 @@ public abstract class SimpleSearchEngineTest {
         List<String> expectedVal = Arrays.asList("baa", "bab", "bac", "bae",
                 "baz");
         List<String> val = sse.prefixSearch("b");
+
+        assertEquals(expectedVal, val);
+    }
+
+    @Test
+    public final void testPrefixSearchWithEmpty() {
+        SimpleSearchEngine1L<String> sse = this.createFromArgsTest(false, "baa",
+                "1", "bac", "2", "bab", "3", "tree", "4", "bae", "5", "baz",
+                "6");
+
+        List<String> expectedVal = Arrays.asList("baa", "bab", "bac", "bae",
+                "baz", "tree");
+        List<String> val = sse.prefixSearch("");
 
         assertEquals(expectedVal, val);
     }

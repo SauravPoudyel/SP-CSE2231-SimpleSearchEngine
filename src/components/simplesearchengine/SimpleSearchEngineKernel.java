@@ -2,6 +2,7 @@ package components.simplesearchengine;
 
 import java.util.List;
 
+import components.map.Map.Pair;
 import components.standard.Standard;
 
 /**
@@ -43,11 +44,34 @@ public interface SimpleSearchEngineKernel<T> extends Standard {
      *
      * @param tag
      *            the tag of the element to be removed
-     * @requires <pre> {tag} is in this.entries and this.entries /= {}
+     * @requires <pre> {@code tag} is in this.entries and this.entries /= {}
      * @updates this.entries
+     * @returns {@code (tag, value)}
      * @ensures this.entries = #this.entries - {(tag, value)}
      */
-    void remove(String tag);
+    Pair<String, T> remove(String tag);
+
+    /**
+     * Removes any {@code (tag, value)} from the entries of {@code this}.
+     *
+     * @requires <pre> this.entries /= {}
+     * @updates this.entries
+     * @returns arbitrary {@code (tag, value)}
+     * @ensures this.entries = #this.entries - {(tag, value)}
+     */
+    Pair<String, T> removeAny();
+
+    /**
+     * Returns the {@code value} corresponding to {@code tag} is in the entries
+     * of {@code this}.
+     *
+     * @param tag
+     *            the tag of the element to be searched for
+     * @return the {@code value} associated with {@code tag}
+     * @requires <pre> {@code tag} is in this.entries and this.entries /= {}
+     * @ensures return value = {@code value} associated with {@code tag}
+     */
+    T valueOf(String tag);
 
     /**
      * Returns true iff {@code tag} is in the entries of {@code this}.
@@ -109,7 +133,9 @@ public interface SimpleSearchEngineKernel<T> extends Standard {
      * @return A lexographically ordered list containing all tags in
      *         this.entries with the prefix {@code prefix}
      * @ensures The returned list, in lexographical order, that contains all
-     *          {@code tag}'s' that have {@code prefix} in this.entries
+     *          {@code tag}'s' that have {@code prefix} in this.entries. AND
+     *          prefix searching an empty string ("") returns a lexographical
+     *          list of ALL {@code tag}'s in this.entries.
      */
     List<String> prefixSearch(String prefix);
 
