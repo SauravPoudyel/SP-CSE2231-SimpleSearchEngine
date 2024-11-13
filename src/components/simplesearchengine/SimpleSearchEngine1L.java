@@ -211,16 +211,24 @@ public class SimpleSearchEngine1L<T> extends SimpleSearchEngineSecondary<T> {
         Tree<TrieNode> currentNode = this.searchStructure;
 
         /*
-         * Iterate through the children and get the child node that matches with
-         * the prefix
+         * If the string is " " then return the first node in the tree which
+         * corresponds to the entire tree
          */
-        for (char prefixChar : prefix.toCharArray()) {
-            currentNode = this.getChildNode(currentNode, prefixChar);
-            if (currentNode == null) {
-                return null;
+        if (prefix.equals("")) {
+            return currentNode;
+        } else {
+            /*
+             * Iterate through the children and get the child node that matches
+             * with the prefix
+             */
+            for (char prefixChar : prefix.toCharArray()) {
+                currentNode = this.getChildNode(currentNode, prefixChar);
+                if (currentNode == null) {
+                    return null;
+                }
             }
+            return currentNode;
         }
-        return currentNode;
     }
 
     /**
@@ -590,13 +598,29 @@ public class SimpleSearchEngine1L<T> extends SimpleSearchEngineSecondary<T> {
     }
 
     @Override
-    public final void remove(String tag) {
+    public final Pair<String, T> remove(String tag) {
         assert this.insertionMode = true : "Violation of: source is in insertion mode";
         assert tag != null : "Violation of: tag is not null";
         assert this.entries.size() > 0 : "Violation of: this.entries /= {}";
 
-        this.entries.remove(tag);
+        return this.entries.remove(tag);
+    }
 
+    @Override
+    public final Pair<String, T> removeAny() {
+        assert this.insertionMode = true : "Violation of: source is in insertion mode";
+        assert this.entries.size() > 0 : "Violation of: this.entries /= {}";
+
+        return this.entries.removeAny();
+    }
+
+    @Override
+    public final T valueOf(String tag) {
+        assert this.insertionMode = true : "Violation of: source is in insertion mode";
+        assert tag != null : "Violation of: tag is not null";
+        assert this.entries.size() > 0 : "Violation of: this.entries /= {}";
+
+        return this.entries.value(tag);
     }
 
     @Override
@@ -628,7 +652,7 @@ public class SimpleSearchEngine1L<T> extends SimpleSearchEngineSecondary<T> {
 
     @Override
     public final List<String> prefixSearch(String prefix) {
-        assert this.insertionMode = false : "Violation of: source is not in insertion mode";
+        assert this.insertionMode != true : "Violation of: source is not in insertion mode";
 
         List<String> results = new ArrayList<>();
         Tree<TrieNode> node = this.findNodeForPrefix(prefix);
@@ -641,7 +665,7 @@ public class SimpleSearchEngine1L<T> extends SimpleSearchEngineSecondary<T> {
 
     @Override
     public List<String> containsSearch(String substring) {
-        assert this.insertionMode = false : "Violation of: source is not in insertion mode";
+        assert this.insertionMode != true : "Violation of: source is not in insertion mode";
 
         List<String> results = new ArrayList<>();
 
@@ -653,7 +677,7 @@ public class SimpleSearchEngine1L<T> extends SimpleSearchEngineSecondary<T> {
 
     @Override
     public String relativeSearch(String relativeTag) {
-        assert this.insertionMode = false : "Violation of: source is not in insertion mode";
+        assert this.insertionMode != true : "Violation of: source is not in insertion mode";
 
         return this.findClosestMatch(this.searchStructure, relativeTag, 0, 0,
                 new StringBuilder(), null, Integer.MAX_VALUE);
