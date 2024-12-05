@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.junit.Test;
 
+import components.map.Map.Pair;
 import components.simplereader.SimpleReader1L;
 
 /**
@@ -183,9 +184,71 @@ public abstract class SimpleSearchEngineTest {
         assertEquals(4, sse.size());
     }
 
+    @Test
+    public final void testValueOf() {
+        SimpleSearchEngine1L<String> sse = this.createFromArgsTest(true, "cat",
+                "1", "dog", "2");
+        assertEquals("1", sse.valueOf("cat"));
+    }
+
+    @Test
+    public final void testContains() {
+        SimpleSearchEngine1L<String> sse = this.createFromArgsTest(true, "cat",
+                "1", "dog", "2");
+        assertEquals(true, sse.contains("cat"));
+    }
+
+    /*
+     * Add and remove test cases
+     */
+    @Test
+    public final void testAddSingleEntry() {
+        SimpleSearchEngine1L<String> sse = this.constructorTest();
+        sse.add("cat", "1");
+        assertEquals(1, sse.size());
+    }
+
+    @Test
+    public final void testRemoveKey() {
+        SimpleSearchEngine1L<String> sse = this.createFromArgsTest(true, "cat",
+                "1", "dog", "2");
+        sse.remove("cat");
+        assertEquals(1, sse.size());
+        assertEquals(false, sse.contains("cat"));
+    }
+
+    @Test
+    public final void testRemoveAnyNonEmpty() {
+        SimpleSearchEngine1L<String> sse = this.createFromArgsTest(true, "cat",
+                "1", "dog", "2");
+        Pair<String, String> removed = sse.removeAny();
+        assertEquals(1, sse.size()); // Size should decrease
+        assertEquals(false, sse.contains(removed.key())); // Key should no longer be present
+    }
+
     /*
      * Tests for toString methods
      */
+    @Test
+    public final void testToStringEmptyInsertionMode() {
+        SimpleSearchEngine1L<String> sse = this.constructorTest();
+
+        String sseString = sse.toString();
+        String sseStringExpected = "(true, ())";
+
+        assertEquals(sseStringExpected, sseString);
+    }
+
+    public final void testToStringEmptySearchMode() {
+        SimpleSearchEngine1L<String> sse = this.constructorTest();
+        sse.changeToSearchMode();
+
+        String sseString = sse.toString();
+        String sseStringExpected = "(false, ())";
+
+        assertEquals(sseStringExpected, sseString);
+    }
+
     @Test
     public final void testToStringInsertionMode() {
         SimpleSearchEngine1L<String> sse = this.createFromArgsTest(true, "a",
@@ -323,6 +386,17 @@ public abstract class SimpleSearchEngineTest {
 
         List<String> expectedVal = Arrays.asList("base", "taste");
         List<String> val = sse.containsSearch("as");
+
+        assertEquals(expectedVal, val);
+    }
+
+    @Test
+    public final void testContainsSearchNonExistentSubstring() {
+        SimpleSearchEngine1L<String> sse = this.createFromArgsTest(false, "bat",
+                "1", "base", "2", "ball", "3", "tree", "4");
+
+        List<String> expectedVal = Arrays.asList(); // Empty list
+        List<String> val = sse.containsSearch("xyz");
 
         assertEquals(expectedVal, val);
     }

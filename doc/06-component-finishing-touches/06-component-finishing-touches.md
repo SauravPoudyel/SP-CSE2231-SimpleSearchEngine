@@ -1,8 +1,8 @@
 # Portfolio Part 6: Finishing Touches
 
-- **Name**: <!-- TODO: fill with first and last name (e.g., Brutus Buckeye) and delete this comment -->
-- **Dot Number**: <!-- TODO: fill with OSU dot number (e.g., buckeye.17) and delete this comment -->
-- **Due Date**: <!-- TODO: fill out with due date and time (e.g., 10/17 @ 3:10 PM EST) and delete this comment -->
+- **Name**: Saurav Poudyel
+- **Dot Number**: poudyel.7
+- **Due Date**: 12/04/2024 @ 12:40 PM EST
 
 ## Assignment Overview
 
@@ -49,8 +49,6 @@ Many of these additional techniques are somewhat out of the scope of this
 course, but just knowing about them could set you up for long term success.
 
 ## Assignment Checklist
-
-<!-- TODO: browse the checklist then delete this comment -->
 
 To be sure you have completed everything on this assignment, we have littered
 this document with TODO comments. You can browse all of them in VSCode by
@@ -298,18 +296,18 @@ Take some time to fill them out honestly.
 > complete the portfolio project, how much better (or worse) do you think you
 > understand software development and why?
 
-<!-- TODO: discuss -->
+I definetly understand software development a lot better. Often times in class we segment a lot of the work that we deal with which is fair considering we have a lot of work to get through. However, that leads to us failing to grasp the entirety of certain concepts or we don't establish them within the context of which they would actually be used and instead look at them isolated. With this project, I gained a much better understanding of how certain components and concepts work in tandem and in a larger scope to form a working project.
 
 > Also, did the portfolio project surface any gaps in your own knowledge of
 > software development. If so, what are those gaps and how did you address them?
 
-<!-- TODO: discuss -->
+I wanted to use this project to explore some gaps in knowledge that I had in more nuanced algorithm models and niche appplications of data structures. I learned a great deal from the class about basic data structures but this project showed me how they can be expanded further to meet other criteria. This came at a challenge but I explored the trie data structure and learned a great deal about it.
 
 > Finally, as a part of completing the portfolio project, to what extent has
 > your perspective of software development changed, if at all? In other words,
 > is software development something you still enjoy? If not, why not?
 
-<!-- TODO: discuss -->
+I still enjoy software development a great deal, and I believe projects are actually a great way of keeping things fresh and reigniting your love for coding. It allows you to fully utilize your skills into something unique and new that you yourself wanted to explore. I wouldn't say that completing this portfolio project was life-changing persay but it was well needed and did the job that a project is supposed to do, which is to make you excited to learn more.
 
 > One of the challenges of completing the portfolio project is picking up a lot
 > of skills on your own. Some of these skills are, of course, software skills.
@@ -317,29 +315,27 @@ Take some time to fill them out honestly.
 > this process. Therefore, the first question is what skills did you pick up
 > through this process?
 
-<!-- TODO: discuss -->
+I definetly learned and engaged in the engineering proccess a bit more. I fully explored the common principle of make, test, evaluate, repeat until you're happy with the product. It was frustrating learned to start over and have your ideas not work out and subsequently waste hours trying to fix it, however, I'm glad I learned it.
 
 > The follow-up question is: could you rephrase these skills you picked up
 > as bullet points that you could put on a resume? Try it below.
 
-<!-- TODO: discuss -->
+- Thoroughly engineered a search engine component using basic data structures and complex langauge proccessing algorithms.
 
 > Next, how has working on this project affected your career trajectory?
 > In other words, do you now hate the topic you picked? Or, are you even more
 > interested in it? Both outcomes are valuable to your personal development.
 
-<!-- TODO: discuss -->
+I wouldn't say that the topic was quite in my career field so it didn't have a crazy influence on my career trajectory. However, like a lot of other projects, it made me want to learn more about software in general which is always a bonus and good for my career trajectory.
 
 > Finally, consider the skills you've picked up and your current career
 > trajectory. What are some things you could do to continue on your
 > career trajectory? Also, who are some mentors you could contact to help
 > you stay on your path?
 
-<!-- TODO: discuss -->
+I definetly want to keep using the idea of project-based programming a lot more. I have some cool personal ones that I'm working on for heart disease detectors with neural networks or chess-bots with genetic algorithms so this project definetly kept the passion going to wrap those up. For mentors, I have a research mentor that I work with closley so I'll make sure to keep in touch with him.
 
 ### Changelog
-
-<!-- TODO: update CHANGELOG then delete this comment -->
 
 At the end of every assignment, you should update the
 [CHANGELOG.md](../../CHANGELOG.md) file found in the root of the project folder.
@@ -429,5 +425,4 @@ better for future students.
 
 <!-- TODO: follow the link to share your feedback then delete this comment -->
 
-[markdown-to-pdf-guide]: https://therenegadecoder.com/blog/how-to-convert-markdown-to-a-pdf-3-quick-solutions/
 [survey]: https://forms.gle/dumXHo6A4Enucdkq9

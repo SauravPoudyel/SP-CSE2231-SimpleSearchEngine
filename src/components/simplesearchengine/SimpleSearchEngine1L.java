@@ -390,69 +390,39 @@ public class SimpleSearchEngine1L<T> extends SimpleSearchEngineSecondary<T> {
             int currentIndex, int currentDistance, StringBuilder currentPath,
             String closestMatch, int closestDistance) {
 
-        /*
-         * If currentNode is null, return the closestMatch found so far
-         */
-        if (curNode == null) {
-            return closestMatch;
+        if (curNode == null || curNode.size() == 0) {
+            return closestMatch; // Safeguard against empty trees
         }
 
-        /*
-         * Check if we are at an end-of-word node and calculate distance
-         */
-        if (curNode.root().isEndOfWord) {
+        TrieNode rootNode = curNode.root();
+        Sequence<Tree<TrieNode>> children = curNode.newSequenceOfTree();
+        curNode.disassemble(children);
+
+        if (rootNode.isEndOfWord) {
             int distance = this.calculateEditDistance(currentPath.toString(),
                     target);
-
             if (distance < closestDistance) {
                 closestDistance = distance;
                 closestMatch = currentPath.toString();
             }
         }
 
-        Sequence<Tree<TrieNode>> children = curNode.newSequenceOfTree();
-        TrieNode rootNode = curNode.disassemble(children);
-
-        /*
-         * Traverse each child node to find the best match
-         */
         for (Tree<TrieNode> child : children) {
-            TrieNode childNode = child.root();
-            char childChar = childNode.nodeChar;
-
-            /*
-             * Check if the current character in target matches the child
-             * character if it does, add 1 to newDistance
-             */
-            int newDistance = currentDistance;
-            if (currentIndex < target.length()
-                    && target.charAt(currentIndex) == childChar) {
-                newDistance++;
+            currentPath.append(child.root().nodeChar);
+            String result = this.findClosestMatch(child, target,
+                    currentIndex + 1, currentDistance, currentPath,
+                    closestMatch, closestDistance);
+            int resultDistance = this.calculateEditDistance(result, target);
+            if (resultDistance < closestDistance) {
+                closestMatch = result;
+                closestDistance = resultDistance;
             }
-
-            currentPath.append(childChar);
-
-            // Recursive call to get the best match from this subtree
-            String subtreeClosestMatch = this.findClosestMatch(child, target,
-                    currentIndex + 1, newDistance, currentPath, closestMatch,
-                    closestDistance);
-
-            // Calculate distance of the closest match found in the subtree
-            int subtreeDistance = this
-                    .calculateEditDistance(subtreeClosestMatch, target);
-
-            // Update the closest match if a better one is found in this subtree
-            if (subtreeDistance < closestDistance) {
-                closestDistance = subtreeDistance;
-                closestMatch = subtreeClosestMatch;
-            }
-
-            // Backtrack
-            currentPath.deleteCharAt(currentPath.length() - 1);
+            currentPath.deleteCharAt(currentPath.length() - 1); // Backtrack
         }
 
-        return closestMatch;
+        curNode.assemble(rootNode, children); // Reassemble the node
 
+        return closestMatch;
     }
 
     /**
@@ -616,7 +586,6 @@ public class SimpleSearchEngine1L<T> extends SimpleSearchEngineSecondary<T> {
 
     @Override
     public final T valueOf(String tag) {
-        assert this.insertionMode = true : "Violation of: source is in insertion mode";
         assert tag != null : "Violation of: tag is not null";
         assert this.entries.size() > 0 : "Violation of: this.entries /= {}";
 
@@ -683,11 +652,6 @@ public class SimpleSearchEngine1L<T> extends SimpleSearchEngineSecondary<T> {
                 new StringBuilder(), null, Integer.MAX_VALUE);
     }
 
-    public void printTrie(Tree<TrieNode> Trie) {
-        StringBuilder currentWord = new StringBuilder();
-        this.printTrie(Trie, currentWord, 0); // Start depth at 0
-    }
-
     private void printTrie(Tree<TrieNode> node, StringBuilder currentWord,
             int depth) {
         // Create an indentation based on the current depth
@@ -707,24 +671,4 @@ public class SimpleSearchEngine1L<T> extends SimpleSearchEngineSecondary<T> {
             currentWord.setLength(currentWord.length() - 1); // Backtrack
         }
     }
-
-    public static void main(String[] args) {
-        // Create an instance of SimpleSearchEngine1L
-        SimpleSearchEngine1L<String> sse = new SimpleSearchEngine1L<>();
-
-        // Example entries to build the trie
-        Map<String, String> entries = new Map4<>();
-        entries.add("bat", "1");
-        entries.add("base", "2");
-        entries.add("ball", "3");
-        entries.add("bomba", "4");
-
-        // Create the trie using the example entries
-        Tree<TrieNode> Trie = sse.createTrie(entries);
-
-        // Print the trie
-        System.out.println("Printing the trie:");
-        sse.printTrie(Trie);
-    }
-
 }

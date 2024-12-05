@@ -8,6 +8,21 @@ the following form: YYYY.0M.0D.
 
 ## [Unreleased]
 
+## [2024.12.04]
+
+### Added
+
+- Finished All Test Cases
+  - added tests for add, remove, removeany, contains and valueOf
+- A demo on SimpleSearchEngine with University registrar
+- A demo on SimpleSearchEngine with random words
+
+## Updated
+
+- Changed equals and toString methods in secondary class to function while entries = 0
+
+## Updated
+
 ## [2024.11.07]
 
 ### Added
