@@ -30,62 +30,66 @@ public abstract class SimpleSearchEngineSecondary<T>
         result.append(this.isInInsertionMode());
         result.append(", (");
 
-        if (this.isInInsertionMode()) {
-            /*
-             * Loop through and get all tags in the sse
-             */
-            List<String> allTags = new ArrayList<>();
-            List<Pair<String, T>> allPairs = new ArrayList<>();
-            while (this.size() > 0) {
-                Pair<String, T> tempPair = this.removeAny();
-                allTags.add(tempPair.key());
-                allPairs.add(tempPair);
-            }
-
-            /*
-             * Sort the tags by lexographical order (can't sort pairs)
-             */
-            Collections.sort(allTags);
-
-            /*
-             * Add the tags and tag values to the string
-             */
-            for (int i = 0; i < allTags.size() - 1; i++) {
-                result.append("(" + allTags.get(i) + ", "
-                        + this.valueOf(allTags.get(i)) + "), ");
-            }
-            /*
-             * Add last tag, value pair
-             */
-            result.append("(" + allTags.get(allTags.size() - 1) + ", "
-                    + this.valueOf(allTags.get(allTags.size() - 1)) + "))");
-
-            /*
-             * Add the pairs back to sse
-             */
-            for (int i = 0; i < allPairs.size(); i++) {
-                this.add(allPairs.get(i).key(), allPairs.get(i).value());
-            }
-
-            allPairs.clear();
-            allTags.clear();
-
+        if (this.size() == 0) {
+            result.append("))");
         } else {
-            /*
-             * Get all the tags in a list and loop through it
-             */
-            List<String> allTags = this.prefixSearch("");
-            for (int i = 0; i < allTags.size() - 1; i++) {
-                String tag = allTags.get(i);
-                result.append("(" + tag + ", " + this.valueOf(tag) + "), ");
-            }
-            /*
-             * Add last tag, value pair
-             */
-            result.append("(" + allTags.get(allTags.size() - 1) + ", "
-                    + this.valueOf(allTags.get(allTags.size() - 1)) + "))");
+            if (this.isInInsertionMode()) {
+                /*
+                 * Loop through and get all tags in the sse
+                 */
+                List<String> allTags = new ArrayList<>();
+                List<Pair<String, T>> allPairs = new ArrayList<>();
+                while (this.size() > 0) {
+                    Pair<String, T> tempPair = this.removeAny();
+                    allTags.add(tempPair.key());
+                    allPairs.add(tempPair);
+                }
 
-            allTags.clear();
+                /*
+                 * Add the pairs back to sse
+                 */
+                for (int i = 0; i < allPairs.size(); i++) {
+                    this.add(allPairs.get(i).key(), allPairs.get(i).value());
+                }
+
+                /*
+                 * Sort the tags by lexographical order (can't sort pairs)
+                 */
+                Collections.sort(allTags);
+
+                /*
+                 * Add the tags and tag values to the string
+                 */
+                for (int i = 0; i < allTags.size() - 1; i++) {
+                    String tag = allTags.get(i);
+                    result.append("(" + tag + ", " + this.valueOf(tag) + "), ");
+                }
+                /*
+                 * Add last tag, value pair
+                 */
+                result.append("(" + allTags.get(allTags.size() - 1) + ", "
+                        + this.valueOf(allTags.get(allTags.size() - 1)) + "))");
+
+                allPairs.clear();
+                allTags.clear();
+
+            } else {
+                /*
+                 * Get all the tags in a list and loop through it
+                 */
+                List<String> allTags = this.prefixSearch("");
+                for (int i = 0; i < allTags.size() - 1; i++) {
+                    String tag = allTags.get(i);
+                    result.append("(" + tag + ", " + this.valueOf(tag) + "), ");
+                }
+                /*
+                 * Add last tag, value pair
+                 */
+                result.append("(" + allTags.get(allTags.size() - 1) + ", "
+                        + this.valueOf(allTags.get(allTags.size() - 1)) + "))");
+
+                allTags.clear();
+            }
         }
 
         return result.toString();
